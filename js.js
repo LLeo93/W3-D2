@@ -106,7 +106,26 @@ const makeItClickable = function () {
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
         */
 
-const revealFooterLink = function () {};
+const revealFooterLink = function () {
+  const footer = document.querySelector('footer'); // Seleziona il tag <footer>
+  if (footer) {
+    footer.addEventListener('click', function () {
+      const linkInterno = footer.querySelector(
+        'a[href^="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents"]'
+      );
+      if (linkInterno) {
+        alert(linkInterno.href);
+      } else {
+        alert('Nessun link interno trovato nel footer.');
+      }
+    });
+  } else {
+    console.error('Elemento <footer> non trovato.');
+  }
+};
+
+// Chiama la funzione per attivare l'ascolto del click sul footer
+revealFooterLink();
 
 /* ESERCIZIO 11
          Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
